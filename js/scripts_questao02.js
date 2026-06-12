@@ -12,7 +12,7 @@ formDados.addEventListener('submit', (evt) => {
     let largura = parseFloat(form_num.get('largura'))
 
     let parede = parseFloat(altura * largura) / parseFloat(2)
-    let tinta = parseFloat(parede / 2) 
-   
-    divResultado.innerHTML = ` ${parede.toFixed(2).replace('.',',')}`
+    let tinta = parseFloat(parede / 2)
+
+    divResultado.innerHTML = `Quantidade de litros necessária é: ${parede.toFixed(2).replace('.', ',')}`
 })
