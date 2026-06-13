@@ -1,5 +1,5 @@
 //Pegando elementos do dom
-const formDados = document.querySelector('#formulario-carro')
+const formDados = document.querySelector('#formulario-aluno')
 const divResultado = document.querySelector('#resultado')
 
 //Capturando o evento de submit
@@ -8,13 +8,17 @@ formDados.addEventListener('submit', (evt) => {
 
     const form_num = new FormData(formDados)
 
-    let distancia = parseFloat(form_num.get('distancia'))
-    let consumo = parseFloat(form_num.get('consumo'))
-    let preco = parseFloat(form_num.get('preco'))
+    let nome = parseFloat(form_num.get('nome'))
+    let nota1 = parseFloat(form_num.get('nota1'))
+    let nota2 = parseFloat(form_num.get('nota2'))
+    let nota3 = parseFloat(form_num.get('nota3'))
 
-    //Distância = 100, consumo = 10km/L, preço = R$10,00
-    let combustivel = parseFloat(distancia / consumo)
-    let valor = parseFloat(combustivel * preco)
+    // >=6 aprovado, <6 reprovado
+    let media = parseFloat(nota1 + nota2 + nota3) / 3
 
-    divResultado.innerHTML = `A quantidade de litros necessários é: ${combustivel} e o valor total será: ${valor}`
+    if(media >= 6){
+        divResultado.innerHTML = `Sua média é: ${media}, você está Aprovado`
+    } else {
+        divResultado.innerHTML = `Sua média é: ${media}, você está Reprovado`
+    }
 })
